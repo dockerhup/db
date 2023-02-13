@@ -1,0 +1,34 @@
+use dbname
+show dbs
+db
+db.createCollection("name")
+db.colname.insertMany([{},{}])
+db.colname.find().pretty()
+db.salesman.find({},{_id:0,FirstName:1})
+db.salesman.updateMany({},{$unset:{"LastName":1}}) 		\\delete
+db.salesman.update({s_id:5002},{$set:{"profit":"40%"}})		\\insert new feild and upadte data for one record
+db.salesman.update({City:"Matara"},{$set:{"City":"Puttalam"}})
+db.salesman.find().limit(3).pretty() 				\\first 3
+db.salesman.find().skip(3).pretty()					\\last 3
+db.salesman.find({FirstName: {$regex: /^S/}},{_id:0,FirstName:1}).pretty()  \\ start with S and only fname
+
+Equal //  {Status: {$eg :"A"}}
+Greater than //	{<key>: {$gt:<value>}}
+Greater than equal //  {<key>: {$gte:<value>}}
+Values in an array // {<key>: {$in:[<value1>, <value2>,……<valueN>]}}
+Less than //  {<key>: {$lt:<value>}} 
+Less than equal //  {<key>: {$lte:<value>}}
+Not equal //  {<key>: {$ne:<value>}}
+
+$and //  db.collectionName.find({ $and: [ {key1:value1}, { key2:value2} ] })
+$or //  db.collectionName.find({ $or: [ {key1:value1}, { key2:value2} ] })
+$not //  db.collectionName.find({ $not: [ {key1:value1}, { key2:value2} ] })
+
+mongoimport --db books --collection bk --file books.json --jsonArray
+
+Create an Index // db collection_Name. createIndex ({field name: 1 or -1})
+Finding the indexes in a collection // db. Collection_Name. getIndexes ( )
+
+Drop indexes in a collection
+Dropping a specific index // db. Collection_Name. dropIndex ({ index_Name : 1})
+Dropping all the indexes // db. Collection_Name. dropIndex ( )

@@ -1,0 +1,31 @@
+// Node JS with Firebase
+
+// Read
+
+customerRef.get().then((querySanpshot) => {
+  querySanpshot.forEach((document) => {
+    console.log(document.data());
+  });
+});
+
+// create
+
+customerRef.doc("id").set({
+    Age: 50,
+    City: "tokyo",
+    Gender:"Female",
+    Name:"chinbin",
+    Salary:99999
+})
+
+//	Update
+
+customerRef.doc("7").update({
+        Age: 55
+    })
+
+// Delete
+
+customerRef.doc("7").delete({
+       
+    })
