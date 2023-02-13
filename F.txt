@@ -2,10 +2,14 @@
 
 // Read
 
+const db = admin.firestore();
+let customerRef = db.collection('UserR01');
+
+
 customerRef.get().then((querySanpshot) => {
-  querySanpshot.forEach((document) => {
-    console.log(document.data());
-  });
+    querySanpshot.forEach((document) => {
+        console.log(document.data());
+    });
 });
 
 // create
